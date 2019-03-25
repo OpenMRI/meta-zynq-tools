@@ -1,0 +1,86 @@
+This README file contains information on the contents of the meta-openmri layer.
+
+Please see the corresponding sections below for details.
+
+Dependencies
+============
+
+  URI: git://git.yoctoproject.org/poky
+  branch: thud
+
+  URI: https://github.com/Xilinx/meta-xilinx.git
+  branch: thud
+
+  Xilinx SDK - includes some Xilinx proprietary binaries.  Required to build the fsbl.  Available as part of Vivado or the URI listed below.
+  URI: http://petalinux.xilinx.com/sswreleases/rel-v2018.3/xsct-trim/xsct.tar.xz
+
+  .
+  .
+  .
+
+Patches
+=======
+
+Please submit any patches against the meta-openmri layer to the xxxx mailing list (xxxx@zzzz.org)
+and cc: the maintainer:
+
+Maintainer: Danny Park <danny.park@outlook.com>
+
+Table of Contents
+=================
+
+  I. Adding the meta-openmri layer to your build
+ II. Misc
+
+
+I. Adding the meta-openmri layer to your build
+=================================================
+
+This layer was originally developed on Ubuntu 18.04.  I followed the instructions on https://www.yoctoproject.org/docs/2.6.1/brief-yoctoprojectqs/brief-yoctoprojectqs.html to build the "core-image-base" image from the "thud" branch.  Once that was done, I modified the build with the following changes:
+
+Run 'bitbake-layers add-layer meta-openmri'
+Run 'bitbake-layers add-layer meta-xilinx-bsp'
+Run 'bitbake-layers add-layer meta-xilinx-standalone'
+Run 'bitbake-layers add-layer meta-xilinx-contrib'
+
+Add the following line to local.conf:
+
+	MACHINE ?= "redpitaya"
+
+Zynq First Stage Boot Loader
+----------------------------
+
+QUICK START
+
+Set the following variables in local.conf:
+
+	IMAGE_INSTALL_append = " zynq-fsbl"
+	XILINX_SDK_PATH = "/absolute-path-to-xilinx/SDK"
+	LOCAL_HDF_FILE = "/absolute-path-to/red_pitaya.hwdef"
+	LOCAL_FPGA_BIT_FILE = "/absolute-path-to/fpga.bit"
+
+MORE DETAILS
+
+Building the first stage boot loader requires proprietary Xilinx tools.  The primary tool required is "xsct".  It processes a .tcl script to generate the appropriate source code for the FSBL (using the https://github.com/Xilinx/embeddedsw.git repository, release-2017.3 branch?).  The FSBL is compiled with a gnu cross compiler included in the SDK (Linaro, I believe).  Once the FSBL is generated, the "bootgen" tool provided by the Xilinx SDK is used to combine the FSBL .elf, the u-boot .elf and the FPGA .bit file into a single boot.bin that runs on the Red Pitaya.
+
+The required SDK can be downloaded from http://petalinux.xilinx.com/sswreleases/rel-v2018.3/xsct-trim/xsct.tar.xz without a Xilinx login at the time of writing.  The SDK is also included in the Vivado suite of tools from Xilinx which can be downloaded with a Xilinx account.  Once you have the Xilinx SDK, set the variable XILINX_SDK_PATH in local.conf to point to the SDK folder.  Recipe assumes version v2018.3 of the SDK.  Another version of the SDK may work if the XILINX_SDK_VERSION variable is set.  However, it is only tested with the previously mentioned version.  There may be additional modifications required, especially if paths are different within the SDK for other versions.
+
+The red_pitaya.hwdef and fpga.bit files are generated from the official Red Pitaya sources at https://github.com/RedPitaya/RedPitaya.git version v0.98.  Instructions to build those can be found at https://redpitaya.readthedocs.io/en/latest/developerGuide/ecosystem/ecosystem.html.  Once a successful build is complete the required .bit and .hwdef files can be found in the subdirectory fpga/prj/logic/sdk/.
+
+
+
+II. Misc
+========
+
+u-boot version
+--------------
+Newer u-boot versions are available.  However, I have not been able to successfully boot the newer compiled version of u-boot on the red pitaya.  Please submit a patch if you are able to get newer versions of u-boot running.
+
+fsbl version
+------------
+The FSBL recipe currently depends on proprietary Xilinx tools being installed separately.
+ - TODO: Modify the recipe in meta-xilinx-tools to install proprietary Xilinx tools automatically or create a new recipe to download and untar the tools.
+
+The fsbl currently uses a gnu cross compiler provided with the Xilinx tools.
+ - TODO: Modify the make file to use the tools natively built in yocto instead.
+
