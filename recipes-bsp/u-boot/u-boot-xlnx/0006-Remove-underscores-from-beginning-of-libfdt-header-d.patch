@@ -1,0 +1,148 @@
+From 4dc9f25c4a4cff935f987a61cbbc739f692592b6 Mon Sep 17 00:00:00 2001
+From: Danny Park <danny.park@outlook.com>
+Date: Mon, 4 Mar 2019 10:39:41 -0500
+Subject: [PATCH 6/7] Remove underscores from beginning of libfdt header
+ defines for xilinx-v2018.1.
+
+---
+ include/libfdt_env.h                 | 6 +++---
+ include/linux/libfdt.h               | 6 +++---
+ include/linux/libfdt_env.h           | 6 +++---
+ lib/libfdt/libfdt.h                  | 6 +++---
+ scripts/dtc/libfdt/libfdt.h          | 6 +++---
+ scripts/dtc/libfdt/libfdt_env.h      | 6 +++---
+ scripts/dtc/libfdt/libfdt_internal.h | 6 +++---
+ 7 files changed, 21 insertions(+), 21 deletions(-)
+
+diff --git a/include/libfdt_env.h b/include/libfdt_env.h
+index 273b5d30f8..992fbceb2b 100644
+--- a/include/libfdt_env.h
++++ b/include/libfdt_env.h
+@@ -6,8 +6,8 @@
+  * SPDX-License-Identifier:	LGPL-2.1+
+  */
+ 
+-#ifndef _LIBFDT_ENV_H
+-#define _LIBFDT_ENV_H
++#ifndef LIBFDT_ENV_H
++#define LIBFDT_ENV_H
+ 
+ #include "compiler.h"
+ #include "linux/types.h"
+@@ -26,4 +26,4 @@ typedef __be64 fdt64_t;
+ /* adding a ramdisk needs 0x44 bytes in version 2008.10 */
+ #define FDT_RAMDISK_OVERHEAD	0x80
+ 
+-#endif /* _LIBFDT_ENV_H */
++#endif /* LIBFDT_ENV_H */
+diff --git a/include/linux/libfdt.h b/include/linux/libfdt.h
+index 2a663c6bb4..0cc17e54e8 100644
+--- a/include/linux/libfdt.h
++++ b/include/linux/libfdt.h
+@@ -1,5 +1,5 @@
+-#ifndef _LIBFDT_ENV_H
+-#define _LIBFDT_ENV_H
++#ifndef LIBFDT_ENV_H
++#define LIBFDT_ENV_H
+ 
+ #include <linux/string.h>
+ 
+@@ -14,4 +14,4 @@ typedef __be64 fdt64_t;
+ #define fdt64_to_cpu(x) be64_to_cpu(x)
+ #define cpu_to_fdt64(x) cpu_to_be64(x)
+ 
+-#endif /* _LIBFDT_ENV_H */
++#endif /* LIBFDT_ENV_H */
+diff --git a/include/linux/libfdt_env.h b/include/linux/libfdt_env.h
+index 8178f9174b..3c9e252836 100644
+--- a/include/linux/libfdt_env.h
++++ b/include/linux/libfdt_env.h
+@@ -1,5 +1,5 @@
+-#ifndef _LIBFDT_ENV_H
+-#define _LIBFDT_ENV_H
++#ifndef LIBFDT_ENV_H
++#define LIBFDT_ENV_H
+ 
+ #include <linux/string.h>
+ 
+@@ -19,4 +19,4 @@ typedef __be64 fdt64_t;
+ 
+ #define strtoul(cp, endp, base)	simple_strtoul(cp, endp, base)
+ 
+-#endif /* _LIBFDT_ENV_H */
++#endif /* LIBFDT_ENV_H */
+diff --git a/lib/libfdt/libfdt.h b/lib/libfdt/libfdt.h
+index 6af94cb3f7..a1a13016e2 100644
+--- a/lib/libfdt/libfdt.h
++++ b/lib/libfdt/libfdt.h
+@@ -1,5 +1,5 @@
+-#ifndef _LIBFDT_H
+-#define _LIBFDT_H
++#ifndef LIBFDT_H
++#define LIBFDT_H
+ /*
+  * libfdt - Flat Device Tree manipulation
+  * Copyright (C) 2006 David Gibson, IBM Corporation.
+@@ -2167,4 +2167,4 @@ int fdt_add_alias_regions(const void *fdt, struct fdt_region *region, int count,
+ 			  int max_regions, struct fdt_region_state *info);
+ #endif /* SWIG */
+ 
+-#endif /* _LIBFDT_H */
++#endif /* LIBFDT_H */
+diff --git a/scripts/dtc/libfdt/libfdt.h b/scripts/dtc/libfdt/libfdt.h
+index 7f83023ee1..1bfc83d9f6 100644
+--- a/scripts/dtc/libfdt/libfdt.h
++++ b/scripts/dtc/libfdt/libfdt.h
+@@ -1,5 +1,5 @@
+-#ifndef _LIBFDT_H
+-#define _LIBFDT_H
++#ifndef LIBFDT_H
++#define LIBFDT_H
+ /*
+  * libfdt - Flat Device Tree manipulation
+  * Copyright (C) 2006 David Gibson, IBM Corporation.
+@@ -1896,4 +1896,4 @@ int fdt_overlay_apply(void *fdt, void *fdto);
+ 
+ const char *fdt_strerror(int errval);
+ 
+-#endif /* _LIBFDT_H */
++#endif /* LIBFDT_H */
+diff --git a/scripts/dtc/libfdt/libfdt_env.h b/scripts/dtc/libfdt/libfdt_env.h
+index 952056cddf..3605d93254 100644
+--- a/scripts/dtc/libfdt/libfdt_env.h
++++ b/scripts/dtc/libfdt/libfdt_env.h
+@@ -1,5 +1,5 @@
+-#ifndef _LIBFDT_ENV_H
+-#define _LIBFDT_ENV_H
++#ifndef LIBFDT_ENV_H
++#define LIBFDT_ENV_H
+ /*
+  * libfdt - Flat Device Tree manipulation
+  * Copyright (C) 2006 David Gibson, IBM Corporation.
+@@ -109,4 +109,4 @@ static inline fdt64_t cpu_to_fdt64(uint64_t x)
+ #undef CPU_TO_FDT16
+ #undef EXTRACT_BYTE
+ 
+-#endif /* _LIBFDT_ENV_H */
++#endif /* LIBFDT_ENV_H */
+diff --git a/scripts/dtc/libfdt/libfdt_internal.h b/scripts/dtc/libfdt/libfdt_internal.h
+index 02cfa6fb61..78460bb7df 100644
+--- a/scripts/dtc/libfdt/libfdt_internal.h
++++ b/scripts/dtc/libfdt/libfdt_internal.h
+@@ -1,5 +1,5 @@
+-#ifndef _LIBFDT_INTERNAL_H
+-#define _LIBFDT_INTERNAL_H
++#ifndef LIBFDT_INTERNAL_H
++#define LIBFDT_INTERNAL_H
+ /*
+  * libfdt - Flat Device Tree manipulation
+  * Copyright (C) 2006 David Gibson, IBM Corporation.
+@@ -92,4 +92,4 @@ static inline struct fdt_reserve_entry *_fdt_mem_rsv_w(void *fdt, int n)
+ 
+ #define FDT_SW_MAGIC		(~FDT_MAGIC)
+ 
+-#endif /* _LIBFDT_INTERNAL_H */
++#endif /* LIBFDT_INTERNAL_H */
+-- 
+2.17.1
+
