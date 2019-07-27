@@ -1,0 +1,110 @@
+From 2ce903c7ab789e24a44958dff93da6ae526e0835 Mon Sep 17 00:00:00 2001
+From: Danny Park <danny.park@outlook.com>
+Date: Fri, 26 Jul 2019 05:10:28 -0400
+Subject: [PATCH 1/2] xilinx-v2019.1 required changes to compile and run.
+
+---
+ configs/zynq_red_pitaya_defconfig | 20 ++++++++++++++------
+ include/configs/zynq_red_pitaya.h |  2 +-
+ 2 files changed, 15 insertions(+), 7 deletions(-)
+
+diff --git a/configs/zynq_red_pitaya_defconfig b/configs/zynq_red_pitaya_defconfig
+index 81119f8a24..fdd515f301 100644
+--- a/configs/zynq_red_pitaya_defconfig
++++ b/configs/zynq_red_pitaya_defconfig
+@@ -2,24 +2,25 @@ CONFIG_ARM=y
+ CONFIG_SYS_CONFIG_NAME="zynq_red_pitaya"
+ CONFIG_ARCH_ZYNQ=y
+ CONFIG_SYS_TEXT_BASE=0x4000000
++CONFIG_SPL=y
+ CONFIG_SYS_MALLOC_F_LEN=0x800
++CONFIG_DEBUG_UART_BASE=0xe0001000
++CONFIG_DEBUG_UART_CLOCK=50000000
+ CONFIG_IDENT_STRING=" Zynq Red Pitaya OpenMRI"
+ CONFIG_SPL_STACK_R_ADDR=0x200000
+-CONFIG_DEFAULT_DEVICE_TREE="zynq-red-pitaya"
+ CONFIG_SYS_NO_FLASH=y
+ #CONFIG_DEBUG_UART=y
+ CONFIG_DISTRO_DEFAULTS=y
+ #CONFIG_FIT=y
+ #CONFIG_FIT_SIGNATURE=y
+ #CONFIG_FIT_VERBOSE=y
++CONFIG_IMAGE_FORMAT_LEGACY=y
+ CONFIG_BOOTCOMMAND="run $modeboot || run distro_bootcmd"
+ # CONFIG_DISPLAY_CPUINFO is not set
+-CONFIG_SPL=y
+ CONFIG_SPL_STACK_R=y
+ CONFIG_SPL_OS_BOOT=y
+ CONFIG_SYS_PROMPT="Zynq> "
+ #CONFIG_CMD_THOR_DOWNLOAD=y
+-CONFIG_CMD_EEPROM=y
+ CONFIG_CMD_MEMTEST=y
+ CONFIG_CMD_DFU=y
+ # CONFIG_CMD_FLASH is not set
+@@ -31,7 +32,6 @@ CONFIG_CMD_GPIO=y
+ CONFIG_CMD_I2C=y
+ CONFIG_CMD_MMC=y
+ CONFIG_CMD_SF=y
+-CONFIG_CMD_I2C=y
+ CONFIG_CMD_USB=y
+ CONFIG_CMD_DFU=y
+ CONFIG_CMD_GPIO=y
+@@ -44,6 +44,7 @@ CONFIG_CMD_CACHE=y
+ # CONFIG_CMD_EXT2=y
+ CONFIG_CMD_EXT4=y
+ CONFIG_CMD_EXT4_WRITE=y
++CONFIG_DEFAULT_DEVICE_TREE="zynq-red-pitaya"
+ CONFIG_CMD_FAT=y
+ CONFIG_CMD_FS_GENERIC=y
+ CONFIG_OF_EMBED=y
+@@ -53,9 +54,18 @@ CONFIG_SPL_DM_SEQ_ALIAS=y
+ CONFIG_DFU_MMC=y
+ CONFIG_DFU_RAM=y
+ CONFIG_FPGA_XILINX=y
++CONFIG_FPGA_ZYNQPL=y
+ CONFIG_DM_GPIO=y
++CONFIG_DM_I2C=y
++CONFIG_SYS_I2C_CADENCE=y
+ CONFIG_DM_MMC=y
+ CONFIG_ZYNQ_SDHCI=y
++CONFIG_MISC=y
++CONFIG_I2C_EEPROM=y
++CONFIG_ENV_IS_IN_EEPROM=y
++CONFIG_CMD_EEPROM=y
++#CONFIG_SYS_I2C_EEPROM_ADDR=0x0
++#CONFIG_SYS_I2C_EEPROM_ADDR_OVERFLOW=0x0
+ CONFIG_MMC_SDHCI=y
+ CONFIG_MMC_SDHCI_ZYNQ=y
+ CONFIG_SPI_FLASH=y
+@@ -71,8 +81,6 @@ CONFIG_PHY_REALTEK=y
+ CONFIG_PHY_XILINX=y
+ CONFIG_ZYNQ_GEM=y
+ CONFIG_DEBUG_UART_ZYNQ=y
+-CONFIG_DEBUG_UART_BASE=0xe0001000
+-CONFIG_DEBUG_UART_CLOCK=50000000
+ CONFIG_ZYNQ_SERIAL=y
+ # CONFIG_ZYNQ_QSPI=y
+ CONFIG_USB=y
+diff --git a/include/configs/zynq_red_pitaya.h b/include/configs/zynq_red_pitaya.h
+index 9f4a93c625..ad418cac65 100644
+--- a/include/configs/zynq_red_pitaya.h
++++ b/include/configs/zynq_red_pitaya.h
+@@ -3,6 +3,7 @@
+ 
+ #define CONFIG_ZYNQ_I2C0
+ #define CONFIG_ZYNQ_EEPROM
++#define CONFIG_CMD_EEPROM
+ 
+ #include <configs/zynq-common.h>
+ 
+@@ -26,7 +27,6 @@
+ #undef CONFIG_ENV_SIZE
+ #undef CONFIG_EXTRA_ENV_SETTINGS
+ 
+-#define CONFIG_ENV_IS_IN_EEPROM
+ #define CONFIG_ENV_SIZE		1024 /* Total Size of Environment Sector */
+ #define CONFIG_ENV_OFFSET	(2048*3) /* WP area starts at last 1/4 of 8k eeprom */
+ 
+-- 
+2.17.1
+

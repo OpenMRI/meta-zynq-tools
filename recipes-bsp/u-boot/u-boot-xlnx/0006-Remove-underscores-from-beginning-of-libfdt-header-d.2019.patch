@@ -1,0 +1,32 @@
+From d3832bb2218b3d1538318fe20a1de41b7ebdace6 Mon Sep 17 00:00:00 2001
+From: Danny Park <danny.park@outlook.com>
+Date: Mon, 4 Mar 2019 10:39:41 -0500
+Subject: [PATCH 6/7] Remove underscores from beginning of libfdt header
+ defines for xilinx-v2018.1.
+
+---
+ include/linux/libfdt.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/include/linux/libfdt.h b/include/linux/libfdt.h
+index eeb2344971..7d4207746f 100644
+--- a/include/linux/libfdt.h
++++ b/include/linux/libfdt.h
+@@ -1,6 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+-#ifndef _INCLUDE_LIBFDT_H_
+-#define _INCLUDE_LIBFDT_H_
++#ifndef INCLUDE_LIBFDT_H_
++#define INCLUDE_LIBFDT_H_
+ 
+ #ifndef USE_HOSTCC
+ #include <linux/libfdt_env.h>
+@@ -309,4 +309,4 @@ int fdt_add_alias_regions(const void *fdt, struct fdt_region *region, int count,
+ 
+ extern struct fdt_header *working_fdt;  /* Pointer to the working fdt */
+ 
+-#endif /* _INCLUDE_LIBFDT_H_ */
++#endif /* INCLUDE_LIBFDT_H_ */
+-- 
+2.17.1
+

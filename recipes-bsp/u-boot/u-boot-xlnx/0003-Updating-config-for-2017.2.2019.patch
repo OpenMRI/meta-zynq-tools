@@ -1,0 +1,28 @@
+From c758d66d214204f0ae64a7a787c6aac49f2756fa Mon Sep 17 00:00:00 2001
+From: Danny Park <danny.park@outlook.com>
+Date: Fri, 22 Feb 2019 15:11:42 -0500
+Subject: [PATCH 3/7] Updating config for 2017.2
+
+---
+ configs/zynq_red_pitaya_defconfig | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/configs/zynq_red_pitaya_defconfig b/configs/zynq_red_pitaya_defconfig
+index 5c251e41a8..88a7eeb8cd 100644
+--- a/configs/zynq_red_pitaya_defconfig
++++ b/configs/zynq_red_pitaya_defconfig
+@@ -35,8 +35,11 @@ CONFIG_OF_EMBED=y
+ CONFIG_SPL_DM_SEQ_ALIAS=y
+ CONFIG_DFU_MMC=y
+ CONFIG_DFU_RAM=y
++CONFIG_DM_GPIO=y
++CONFIG_DM_MMC=y
+ CONFIG_ZYNQ_SDHCI=y
+ CONFIG_MMC_SDHCI=y
++CONFIG_DM_ETH=y
+ CONFIG_ZYNQ_GEM=y
+ # CONFIG_ZYNQ_QSPI=y
+ CONFIG_USB=y
+-- 
+2.17.1
+
