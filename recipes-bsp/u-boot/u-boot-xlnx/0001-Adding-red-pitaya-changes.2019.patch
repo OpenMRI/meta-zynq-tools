@@ -98,6 +98,24 @@ index 0000000000..ba4356ff01
 +	dr_mode = "host";
 +	usb-phy = <&usb_phy0>;
 +};
++
++/*
++ * list devices on I2C bus
++ */
++
++&i2c0 {
++	eeprom@50 {
++		compatible = "24c64";
++		reg = <0x50>;
++		pagesize = <32>;
++	};
++
++	eeprom@51 {
++		compatible = "24c64";
++		reg = <0x51>;
++		pagesize = <32>;
++	};
++};
 diff --git a/common/main.c b/common/main.c
 index 07b34bf2b0..316c78de73 100644
 --- a/common/main.c
