@@ -12,7 +12,7 @@ DEPENDS += " bison-native"
 require recipes-bsp/u-boot/u-boot-xlnx.inc
 require recipes-bsp/u-boot/u-boot-spl-zynq-init.inc
 
-SRC_URI_append_redpitaya = " file://0001-Adding-red-pitaya-changes.2019.patch file://0002-Modify-config-for-2017.1.2019.patch file://0003-Updating-config-for-2017.2.2019.patch file://0004-Add-CONFIG_SYS_TEXT_BASE-a-NEW-required-option-in-20.2019.patch file://0005-Add-extra-environment-settings-patch.2019.patch file://0006-Remove-underscores-from-beginning-of-libfdt-header-d.2019.patch file://0007-Changes-for-xilinx-v2018.1-in-yocto.2019.patch file://0001-xilinx-v2019.1-required-changes-to-compile-and-run.patch file://0002-Refactor-zynq_red_pitaya_defconf-to-better-reflect-n.patch file://u-boot.script"
+SRC_URI_append_redpitaya = " file://0001-Adding-red-pitaya-changes.2019.patch file://0002-Modify-config-for-2017.1.2019.patch file://0003-Updating-config-for-2017.2.2019.patch file://0004-Add-CONFIG_SYS_TEXT_BASE-a-NEW-required-option-in-20.2019.patch file://0005-Add-extra-environment-settings-patch.2019.patch file://0006-Remove-underscores-from-beginning-of-libfdt-header-d.2019.patch file://0007-Changes-for-xilinx-v2018.1-in-yocto.2019.patch file://0001-xilinx-v2019.1-required-changes-to-compile-and-run.patch file://0002-Refactor-zynq_red_pitaya_defconf-to-better-reflect-n.patch file://0001-Remove-u-boot-environment-storage-options-because-th.patch file://u-boot.script"
 
 # define UBOOT_ENV file immediately
 UBOOT_ENV_SUFFIX := "scr"
