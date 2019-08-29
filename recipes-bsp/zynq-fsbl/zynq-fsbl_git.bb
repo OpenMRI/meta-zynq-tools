@@ -34,7 +34,7 @@ do_compile () {
 	PATH=${XILINX_SDK_CC_PATH}:$PATH make
 
 	# Package resulting executable.elf with provided .bit file and compiled u-boot.elf
-	echo img:{[bootloader] executable.elf ${LOCAL_FPGA_BIT_FILE} ${STAGING_DIR_HOST}/boot/u-boot.elf} > boot_${BP}.bif
+	echo img:{[bootloader] executable.elf ${STAGING_DIR_HOST}/boot/u-boot.elf} > boot_${BP}.bif
 	${XILINX_SDK_BIN}/bootgen -image boot_${BP}.bif -o boot.bin -w on
 }
 
