@@ -1,0 +1,147 @@
+From 6bfe80dcefb0b4b0b5268648121bd41a5b0a65a5 Mon Sep 17 00:00:00 2001
+From: Danny Park <danny.park@outlook.com>
+Date: Wed, 4 Sep 2019 12:24:14 -0400
+Subject: [PATCH] Add devicetree for the redpitaya OpenMRI device.
+
+---
+ arch/arm/boot/dts/zynq-redpitaya.dts | 128 +++++++++++++++++++++++++++
+ 1 file changed, 128 insertions(+)
+ create mode 100644 arch/arm/boot/dts/zynq-redpitaya.dts
+
+diff --git a/arch/arm/boot/dts/zynq-redpitaya.dts b/arch/arm/boot/dts/zynq-redpitaya.dts
+new file mode 100644
+index 000000000000..a4673d1b614f
+--- /dev/null
++++ b/arch/arm/boot/dts/zynq-redpitaya.dts
+@@ -0,0 +1,128 @@
++
++
++
++/dts-v1/;
++#include "zynq-7000.dtsi"
++/ {
++	model = "Zynq RedPitaya OpenMRI";
++	compatible = "xlnx,zynq-redpitaya", "xlnx,zynq-7000";
++	chosen {
++		bootargs = "console=ttyPS0,115200 root=/dev/mmcblk0p2 ro rootfstype=ext4 earlyprintk rootwait earlycon";
++		stdout-path = "serial0:115200n8";
++	};
++	cpus {
++		cpu@0 {
++			operating-points = <666666 1000000 333333 1000000>;
++		};
++	};
++	aliases {
++		ethernet0 = &gem0;
++		i2c0 = &i2c0;
++		serial0 = &uart0;
++		serial1 = &uart1;
++		spi0 = &qspi;
++		spi1 = &spi0;
++		spi2 = &spi1;
++	};
++	memory {
++		device_type = "memory";
++		reg = <0x0 0x20000000>;
++	};
++
++	led-system {
++		compatible = "gpio-leds";
++		led-8-yellow {
++			label = "led8";
++			gpios = <&gpio0 0 0>;
++			default-state = "off";
++			linux,default-trigger = "mmc0";
++		};
++		led-9-red {
++			label = "led9";
++			gpios = <&gpio0 7 0>;
++			default-state = "off";
++			linux,default-trigger = "heartbeat";
++		};
++	};
++
++};
++&gem0 {
++	phy-mode = "rgmii-id";
++	status = "okay";
++	xlnx,ptp-enet-clock = <0x69f6bcb>;
++};
++&gpio0 {
++	emio-gpio-width = <64>;
++	gpio-mask-high = <0x0>;
++	gpio-mask-low = <0x5600>;
++};
++&i2c0 {
++	clock-frequency = <400000>;
++	status = "okay";
++};
++&intc {
++	num_cpus = <2>;
++	num_interrupts = <96>;
++};
++&qspi {
++	is-dual = <0>;
++	num-cs = <1>;
++	spi-rx-bus-width = <4>;
++	spi-tx-bus-width = <4>;
++	status = "okay";
++};
++&sdhci0 {
++	status = "okay";
++	xlnx,has-cd = <0x1>;
++	xlnx,has-power = <0x0>;
++	xlnx,has-wp = <0x1>;
++};
++&spi0 {
++	is-decoded-cs = <0>;
++	num-cs = <3>;
++	status = "okay";
++};
++&spi1 {
++	is-decoded-cs = <0>;
++	num-cs = <1>;
++	status = "okay";
++};
++&uart0 {
++	cts-override ;
++	device_type = "serial";
++	port-number = <0>;
++	status = "okay";
++};
++&uart1 {
++	cts-override ;
++	device_type = "serial";
++	port-number = <1>;
++	status = "okay";
++};
++&usb0 {
++	phy_type = "ulpi";
++	status = "okay";
++	usb-reset = <&gpio0 48 0>;
++};
++&clkc {
++	fclk-enable = <0x1>;
++	ps-clk-frequency = <33333333>;
++};
++
++/*
++ * list devices on I2C bus
++ */
++
++&i2c0 {
++	eeprom@50 {
++		compatible = "24c64";
++		reg = <0x50>;
++		pagesize = <32>;
++	};
++
++	eeprom@51 {
++		compatible = "24c64";
++		reg = <0x51>;
++		pagesize = <32>;
++	};
++};
+-- 
+2.17.1
+
