@@ -124,7 +124,7 @@ index 07b34bf2b0..316c78de73 100644
  	if (cli_process_fdt(&s))
  		cli_secure_boot_cmd(s);
  
-+	setenv("sdboot", "echo Running script from SD... && mmcinfo && fatload mmc 0 0x2000000 u-boot.scr && source 0x2000000");
++	setenv("sdboot", "echo Running script from SD... && mmcinfo && fatload mmc 0 0x2000000 boot.scr && source 0x2000000");
 +
  	autoboot_command(s);
  

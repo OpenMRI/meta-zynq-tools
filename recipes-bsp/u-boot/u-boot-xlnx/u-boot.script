@@ -27,7 +27,7 @@ setenv initrd_high ${high}
 echo Loading from SD card (FAT file system) to memory
 mmcinfo
 fatload mmc 0 ${addr_linux} uImage
-fatload mmc 0 ${addr_dtb}   devicetree.dtb
+fatload mmc 0 ${addr_dtb}   zynq-redpitaya.dtb
 
 echo Booting Linux kernel with ramdisk and devicetree
 setenv sdboot bootm ${addr_linux} - ${addr_dtb}
