@@ -30,6 +30,8 @@ Table of Contents
 =================
 
   I. Adding the meta-openmri layer to your build
+     A) Zynq First Stage Boot Loader
+     B) Generating an SD card image file
  II. Misc
 
 
@@ -65,6 +67,17 @@ The required SDK can be downloaded from http://petalinux.xilinx.com/sswreleases/
 
 The ocra_mri.hdf file is generated from the official OCRA sources at https://github.com/OpenMRI/ocra.git (master branch commit c1bf1a2a18cb337d4e6b8a3b2e90fa056b51e73a created a bootable image at the time of writing).
 
+Generating an SD card image file
+--------------------------------
+First, all the required components of the image must be built with the command:
+
+	bitbake openmri-image
+
+Once that command is complete, you can run the command
+
+	wic create sdimage-bootpart -e openmri-image
+
+to generate a .direct file.  This file can be written directly to an sd card with dd on Linux or Win32DiskImager on Windows.
 
 
 II. Misc
