@@ -12,7 +12,7 @@ Dependencies
   branch: thud
 
   Xilinx SDK - includes some Xilinx proprietary binaries.  Required to build the fsbl.  Available as part of Vivado or the URI listed below.
-  URI: http://petalinux.xilinx.com/sswreleases/rel-v2018.3/xsct-trim/xsct.tar.xz
+  URI: http://petalinux.xilinx.com/sswreleases/rel-v2019/xsct-trim/xsct-2019-1.tar.xz
 
   .
   .
@@ -54,18 +54,16 @@ QUICK START
 
 Set the following variables in local.conf:
 
-	IMAGE_INSTALL_append = " zynq-fsbl"
-	XILINX_SDK_PATH = "/absolute-path-to-xilinx/SDK"
-	LOCAL_HDF_FILE = "/absolute-path-to/red_pitaya.hwdef"
-	LOCAL_FPGA_BIT_FILE = "/absolute-path-to/fpga.bit"
+	XILINX_SDK_PATH = "/absolute-path-to-xilinx/SDK" (optional for default path of /tools/Xilinx/SDK)
+	LOCAL_HDF_FILE = "/absolute-path-to/ocra_mri.hdf"
 
 MORE DETAILS
 
-Building the first stage boot loader requires proprietary Xilinx tools.  The primary tool required is "xsct".  It processes a .tcl script to generate the appropriate source code for the FSBL (using the https://github.com/Xilinx/embeddedsw.git repository, release-2017.3 branch?).  The FSBL is compiled with a gnu cross compiler included in the SDK (Linaro, I believe).  Once the FSBL is generated, the "bootgen" tool provided by the Xilinx SDK is used to combine the FSBL .elf, the u-boot .elf and the FPGA .bit file into a single boot.bin that runs on the Red Pitaya.
+Building the first stage boot loader requires proprietary Xilinx tools.  The primary tool required is "xsct".  It processes a .tcl script to generate the appropriate source code for the FSBL (using the https://github.com/Xilinx/embeddedsw.git repository, release-2019.1 branch).  The FSBL is compiled with a gnu cross compiler included in the SDK (Linaro, I believe).  Once the FSBL is generated, the "bootgen" tool provided by the Xilinx SDK is used to combine the FSBL .elf, the u-boot .elf and the FPGA .bit file into a single boot.bin that runs on the Red Pitaya.
 
-The required SDK can be downloaded from http://petalinux.xilinx.com/sswreleases/rel-v2018.3/xsct-trim/xsct.tar.xz without a Xilinx login at the time of writing.  The SDK is also included in the Vivado suite of tools from Xilinx which can be downloaded with a Xilinx account.  Once you have the Xilinx SDK, set the variable XILINX_SDK_PATH in local.conf to point to the SDK folder.  Recipe assumes version v2018.3 of the SDK.  Another version of the SDK may work if the XILINX_SDK_VERSION variable is set.  However, it is only tested with the previously mentioned version.  There may be additional modifications required, especially if paths are different within the SDK for other versions.
+The required SDK can be downloaded from http://petalinux.xilinx.com/sswreleases/rel-v2019/xsct-trim/xsct-2019-1.tar.xz without a Xilinx login at the time of writing.  The SDK is also included in the Vivado suite of tools from Xilinx which can be downloaded with a Xilinx account.  Once you have the Xilinx SDK, set the variable XILINX_SDK_PATH in local.conf to point to the SDK folder (if it is different than the default /tools/Xilinx/SDK).  Recipe assumes version v2019.1 of the SDK.  Another version of the SDK may work if the XILINX_SDK_VERSION variable is set.  However, it is only tested with the previously mentioned version.  There may be additional modifications required, especially if paths are different within the SDK for other versions.
 
-The red_pitaya.hwdef and fpga.bit files are generated from the official Red Pitaya sources at https://github.com/RedPitaya/RedPitaya.git version v0.98.  Instructions to build those can be found at https://redpitaya.readthedocs.io/en/latest/developerGuide/ecosystem/ecosystem.html.  Once a successful build is complete the required .bit and .hwdef files can be found in the subdirectory fpga/prj/logic/sdk/.
+The ocra_mri.hdf file is generated from the official OCRA sources at https://github.com/OpenMRI/ocra.git (master branch commit c1bf1a2a18cb337d4e6b8a3b2e90fa056b51e73a created a bootable image at the time of writing).
 
 
 
@@ -74,7 +72,7 @@ II. Misc
 
 u-boot version
 --------------
-Newer u-boot versions are available.  However, I have not been able to successfully boot the newer compiled version of u-boot on the red pitaya.  Please submit a patch if you are able to get newer versions of u-boot running.
+U-boot has been updated.  However, the method was inelegant.  It needs to be cleaned up.  It may be possible to upgrade one version of u-boot at a time and using the kbuild system to upgrade the configuration files.
 
 fsbl version
 ------------

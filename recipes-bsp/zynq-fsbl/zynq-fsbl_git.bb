@@ -1,6 +1,6 @@
 
 LICENSE = "Unknown"
-LIC_FILES_CHKSUM = "file://license.txt;md5=71602ce1bc2917a9be07ceee6fab6711"
+LIC_FILES_CHKSUM = "file://license.txt;md5=e9b6d01d45faccfbf05d8caea53f0a35"
 
 PROVIDES += "virtual/boot-bin"
 DEPENDS += "u-boot-xlnx"
@@ -8,14 +8,16 @@ DEPENDS += "u-boot-xlnx"
 inherit deploy
 
 FILESEXTRAPATHS_append := ":${THISDIR}/scripts"
-SRC_URI = "git://github.com/Xilinx/embeddedsw.git;branch=release-2018.3;protocol=https file://app.tcl"
+SRC_URI = "git://github.com/Xilinx/embeddedsw.git;branch=release-2019.1;protocol=https file://app.tcl"
 
 PV = "1.0+git${SRCPV}"
-SRCREV = "56f3da2afbc817988c9a45b0b26a7fef2ac91706"
+SRCREV = "26c14d9861010a0e3a55c73fb79efdb816eb42ca"
+# SRCREV = "56f3da2afbc817988c9a45b0b26a7fef2ac91706" release-2018.3
 # SRCREV = "3c9f0cfde9307c2dc1a298f9f22d492601232821" release-2017.3
 
 
-XILINX_SDK_VERSION ?= "2018.3"
+XILINX_SDK_VERSION ?= "2019.1"
+XILINX_SDK_PATH ?= "/tools/Xilinx/SDK"
 XILINX_SDK_BIN = "${XILINX_SDK_PATH}/${XILINX_SDK_VERSION}/bin"
 XILINX_SDK_CC_PATH = "${XILINX_SDK_PATH}/${XILINX_SDK_VERSION}/gnu/aarch32/lin/gcc-arm-none-eabi/bin"
 
