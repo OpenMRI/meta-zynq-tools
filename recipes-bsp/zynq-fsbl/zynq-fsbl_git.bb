@@ -1,6 +1,6 @@
 
 LICENSE = "Unknown"
-LIC_FILES_CHKSUM = "file://license.txt;md5=e9b6d01d45faccfbf05d8caea53f0a35"
+LIC_FILES_CHKSUM = "file://license.txt;md5=ce611484168a6000bd35df68fc4f4290"
 
 PROVIDES += "virtual/boot-bin"
 DEPENDS += "u-boot-xlnx"
