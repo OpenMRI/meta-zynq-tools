@@ -8,10 +8,10 @@ DEPENDS += "u-boot-xlnx"
 inherit deploy
 
 FILESEXTRAPATHS:append := ":${THISDIR}/scripts"
-SRC_URI = "git://github.com/Xilinx/embeddedsw.git;branch=release-2022.2;protocol=https file://app.tcl"
+SRC_URI = "git://github.com/Xilinx/embeddedsw.git;branch=xlnx_rel_v2022.2;protocol=https file://app.tcl"
 
 PV = "1.0+git${SRCPV}"
-SRCREV = "26c14d9861010a0e3a55c73fb79efdb816eb42ca"
+SRCREV = "xilinx_v2022.2"
 # SRCREV = "56f3da2afbc817988c9a45b0b26a7fef2ac91706" release-2018.3
 # SRCREV = "3c9f0cfde9307c2dc1a298f9f22d492601232821" release-2017.3
 
