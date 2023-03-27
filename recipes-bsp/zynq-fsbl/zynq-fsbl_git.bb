@@ -7,8 +7,8 @@ DEPENDS += "u-boot-xlnx"
 
 inherit deploy
 
-FILESEXTRAPATHS_append := ":${THISDIR}/scripts"
-SRC_URI = "git://github.com/Xilinx/embeddedsw.git;branch=release-2019.1;protocol=https file://app.tcl"
+FILESEXTRAPATHS:append := ":${THISDIR}/scripts"
+SRC_URI = "git://github.com/Xilinx/embeddedsw.git;branch=release-2022.2;protocol=https file://app.tcl"
 
 PV = "1.0+git${SRCPV}"
 SRCREV = "26c14d9861010a0e3a55c73fb79efdb816eb42ca"
@@ -16,8 +16,8 @@ SRCREV = "26c14d9861010a0e3a55c73fb79efdb816eb42ca"
 # SRCREV = "3c9f0cfde9307c2dc1a298f9f22d492601232821" release-2017.3
 
 
-XILINX_SDK_VERSION ?= "2019.1"
-XILINX_SDK_PATH ?= "/tools/Xilinx/SDK"
+XILINX_SDK_VERSION ?= "2022.2"
+XILINX_SDK_PATH ?= "/tools/Xilinx/Vitis"
 XILINX_SDK_BIN = "${XILINX_SDK_PATH}/${XILINX_SDK_VERSION}/bin"
 XILINX_SDK_CC_PATH = "${XILINX_SDK_PATH}/${XILINX_SDK_VERSION}/gnu/aarch32/lin/gcc-arm-none-eabi/bin"
 
