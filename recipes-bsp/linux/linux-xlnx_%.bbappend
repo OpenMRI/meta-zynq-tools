@@ -9,4 +9,4 @@ SRC_URI:append_redpitaya = " \
 		file://0001-Add-devicetree-for-the-redpitaya-OpenMRI-device.patch \
 		"
 # Modify the kernel config to add Xilinx drivers
-SRC_URI += "file://xilinx_drivers.cfg"
+SRC_URI:append := "file://xilinx_drivers.cfg"
