@@ -1,0 +1,63 @@
+From 3c08687c0d9f22efe7f4a2125c2dc75257907c00 Mon Sep 17 00:00:00 2001
+From: Thomas Witzel <witzel.thomas@gmail.com>
+Date: Tue, 28 Mar 2023 08:33:50 -0700
+Subject: [PATCH] Configure snickerdoodle to support ZYNQ PL DUHHHHH
+
+---
+ configs/snickerdoodle_black_defconfig | 1 +
+ configs/snickerdoodle_defconfig       | 1 +
+ configs/snickerdoodle_one_defconfig   | 1 +
+ configs/snickerdoodle_prime_defconfig | 1 +
+ 4 files changed, 4 insertions(+)
+
+diff --git a/configs/snickerdoodle_black_defconfig b/configs/snickerdoodle_black_defconfig
+index a76a6da179..979ef27312 100644
+--- a/configs/snickerdoodle_black_defconfig
++++ b/configs/snickerdoodle_black_defconfig
+@@ -47,6 +47,7 @@ CONFIG_OF_EMBED=y
+ CONFIG_NET_RANDOM_ETHADDR=y
+ CONFIG_SPL_DM_SEQ_ALIAS=y
+ CONFIG_FPGA_XILINX=y
++CONFIG_FPGA_ZYNQPL=y
+ CONFIG_DM_GPIO=y
+ CONFIG_DM_I2C=y
+ CONFIG_SYS_I2C_CADENCE=y
+diff --git a/configs/snickerdoodle_defconfig b/configs/snickerdoodle_defconfig
+index 1bd40fe54a..fd81966d18 100644
+--- a/configs/snickerdoodle_defconfig
++++ b/configs/snickerdoodle_defconfig
+@@ -47,6 +47,7 @@ CONFIG_OF_EMBED=y
+ CONFIG_NET_RANDOM_ETHADDR=y
+ CONFIG_SPL_DM_SEQ_ALIAS=y
+ CONFIG_FPGA_XILINX=y
++CONFIG_FPGA_ZYNQPL=y
+ CONFIG_DM_GPIO=y
+ CONFIG_DM_I2C=y
+ CONFIG_SYS_I2C_CADENCE=y
+diff --git a/configs/snickerdoodle_one_defconfig b/configs/snickerdoodle_one_defconfig
+index 853b1b6fc0..b2183ee0c5 100644
+--- a/configs/snickerdoodle_one_defconfig
++++ b/configs/snickerdoodle_one_defconfig
+@@ -47,6 +47,7 @@ CONFIG_OF_EMBED=y
+ CONFIG_NET_RANDOM_ETHADDR=y
+ CONFIG_SPL_DM_SEQ_ALIAS=y
+ CONFIG_FPGA_XILINX=y
++CONFIG_FPGA_ZYNQPL=y
+ CONFIG_DM_GPIO=y
+ CONFIG_DM_I2C=y
+ CONFIG_SYS_I2C_CADENCE=y
+diff --git a/configs/snickerdoodle_prime_defconfig b/configs/snickerdoodle_prime_defconfig
+index a2c6e3c694..bd795dedb6 100644
+--- a/configs/snickerdoodle_prime_defconfig
++++ b/configs/snickerdoodle_prime_defconfig
+@@ -47,6 +47,7 @@ CONFIG_OF_EMBED=y
+ CONFIG_NET_RANDOM_ETHADDR=y
+ CONFIG_SPL_DM_SEQ_ALIAS=y
+ CONFIG_FPGA_XILINX=y
++CONFIG_FPGA_ZYNQPL=y
+ CONFIG_DM_GPIO=y
+ CONFIG_DM_I2C=y
+ CONFIG_SYS_I2C_CADENCE=y
+-- 
+2.37.2
+
