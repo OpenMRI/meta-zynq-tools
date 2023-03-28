@@ -3,3 +3,6 @@ do_notify_configure () {
 }
 
 addtask notify_configure before do_configure
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI:append = " file://0001-Add-snickerdoodle.patch "
