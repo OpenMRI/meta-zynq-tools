@@ -1,7 +1,7 @@
-From 7c3edc289ea29e165a71b7b572cc1623ac0a12ed Mon Sep 17 00:00:00 2001
+From 41de0277bfde6fe7be34cdce647a25d5a2f44b80 Mon Sep 17 00:00:00 2001
 From: Thomas Witzel <witzel.thomas@gmail.com>
-Date: Tue, 28 Mar 2023 01:42:23 -0700
-Subject: [PATCH] added snickerdoodle config files
+Date: Tue, 28 Mar 2023 07:34:04 -0700
+Subject: [PATCH] Add snickerdoodle config files
 
 ---
  arch/arm/dts/snickerdoodle-black.dts  | 60 +++++++++++++++++++++
@@ -12,7 +12,8 @@ Subject: [PATCH] added snickerdoodle config files
  configs/snickerdoodle_defconfig       | 78 +++++++++++++++++++++++++++
  configs/snickerdoodle_one_defconfig   | 78 +++++++++++++++++++++++++++
  configs/snickerdoodle_prime_defconfig | 78 +++++++++++++++++++++++++++
- 8 files changed, 552 insertions(+)
+ include/configs/snickerdoodle.h       | 16 ++++++
+ 9 files changed, 568 insertions(+)
  create mode 100644 arch/arm/dts/snickerdoodle-black.dts
  create mode 100644 arch/arm/dts/snickerdoodle-one.dts
  create mode 100644 arch/arm/dts/snickerdoodle-prime.dts
@@ -21,6 +22,7 @@ Subject: [PATCH] added snickerdoodle config files
  create mode 100644 configs/snickerdoodle_defconfig
  create mode 100644 configs/snickerdoodle_one_defconfig
  create mode 100644 configs/snickerdoodle_prime_defconfig
+ create mode 100644 include/configs/snickerdoodle.h
 
 diff --git a/arch/arm/dts/snickerdoodle-black.dts b/arch/arm/dts/snickerdoodle-black.dts
 new file mode 100644
@@ -622,6 +624,28 @@ index 0000000000..c200783fa0
 +CONFIG_USB_GADGET_DOWNLOAD=y
 +CONFIG_OF_LIBFDT_OVERLAY=y
 +# CONFIG_EFI_LOADER is not set
+diff --git a/include/configs/snickerdoodle.h b/include/configs/snickerdoodle.h
+new file mode 100644
+index 0000000000..ab986d4b57
+--- /dev/null
++++ b/include/configs/snickerdoodle.h
+@@ -0,0 +1,16 @@
++/*
++ * (c) Copyright 2017 krtkl inc.
++ *
++ * Configuration for snickerdoodle Development Platform
++ * See zynq-common.h for Zynq common configs
++ *
++ * SPDX-License-Identifier:	GPL-2.0+
++ */
++
++#ifndef __CONFIG_SNICKERDOODLE_H
++#define __CONFIG_SNICKERDOODLE_H
++
++#include <configs/zynq-common.h>
++
++#endif /* __CONFIG_SNICKERDOODLE_H */
++
 -- 
 2.37.2
 
