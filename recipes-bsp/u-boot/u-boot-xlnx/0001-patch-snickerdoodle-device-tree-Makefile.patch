@@ -1,0 +1,29 @@
+From 9c2b2c084506f75df2821d5250ffe724cd2f3c51 Mon Sep 17 00:00:00 2001
+From: Thomas Witzel <witzel.thomas@gmail.com>
+Date: Tue, 28 Mar 2023 08:05:26 -0700
+Subject: [PATCH] patch snickerdoodle device-tree Makefile
+
+---
+ arch/arm/dts/Makefile | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/dts/Makefile b/arch/arm/dts/Makefile
+index 0d06762da4..0817853339 100644
+--- a/arch/arm/dts/Makefile
++++ b/arch/arm/dts/Makefile
+@@ -321,7 +321,11 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
+ 	zynq-zturn.dtb \
+ 	zynq-zturn-v5.dtb \
+ 	zynq-zybo.dtb \
+-	zynq-zybo-z7.dtb
++	zynq-zybo-z7.dtb \
++	snickerdoodle.dtb \
++	snickerdoodle-black.dtb \
++	snickerdoodle-prime.dtb \
++	snickerdoodle-one.dtb
+ dtb-$(CONFIG_ARCH_ZYNQMP) += \
+ 	avnet-ultra96-rev1.dtb			\
+ 	avnet-ultrazedev-cc-v1.0-ultrazedev-som-v1.0.dtb	\
+-- 
+2.37.2
+
