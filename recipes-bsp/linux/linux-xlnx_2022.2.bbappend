@@ -1,5 +1,5 @@
 do_notify_configure () {
-    bbplain "TWITZEL: TWITZEL: Applying device-tree overrides ${THISDIR}/${BPN}"
+    bbplain "META-ZYNQ-TOOLS: Applying device-tree overrides ${THISDIR}/${BPN}/v2022.2"
 }
 
 addtask notify_configure before do_compile
