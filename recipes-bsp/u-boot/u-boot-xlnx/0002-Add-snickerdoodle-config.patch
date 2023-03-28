@@ -1,0 +1,35 @@
+From f2780127d61f1c1bfd2bcc5d123b3aac8ba9172f Mon Sep 17 00:00:00 2001
+From: Thomas Witzel <witzel.thomas@gmail.com>
+Date: Tue, 28 Mar 2023 02:42:43 -0700
+Subject: [PATCH] added an include file that I had forgotten
+
+---
+ configs/snickerdoodle.h | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+ create mode 100644 configs/snickerdoodle.h
+
+diff --git a/configs/snickerdoodle.h b/configs/snickerdoodle.h
+new file mode 100644
+index 0000000000..ab986d4b57
+--- /dev/null
++++ b/configs/snickerdoodle.h
+@@ -0,0 +1,16 @@
++/*
++ * (c) Copyright 2017 krtkl inc.
++ *
++ * Configuration for snickerdoodle Development Platform
++ * See zynq-common.h for Zynq common configs
++ *
++ * SPDX-License-Identifier:	GPL-2.0+
++ */
++
++#ifndef __CONFIG_SNICKERDOODLE_H
++#define __CONFIG_SNICKERDOODLE_H
++
++#include <configs/zynq-common.h>
++
++#endif /* __CONFIG_SNICKERDOODLE_H */
++
+-- 
+2.37.2
+
