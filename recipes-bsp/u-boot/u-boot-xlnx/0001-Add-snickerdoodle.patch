@@ -1,6 +1,32 @@
-diff --color -ruN /home/twitzel/projects/u-boot-xlnx/arch/arm/dts/snickerdoodle-black.dts ./arch/arm/dts/snickerdoodle-black.dts
---- /home/twitzel/projects/u-boot-xlnx/arch/arm/dts/snickerdoodle-black.dts	1969-12-31 16:00:00.000000000 -0800
-+++ ./arch/arm/dts/snickerdoodle-black.dts	2023-03-28 01:04:10.310314369 -0700
+From 7c3edc289ea29e165a71b7b572cc1623ac0a12ed Mon Sep 17 00:00:00 2001
+From: Thomas Witzel <witzel.thomas@gmail.com>
+Date: Tue, 28 Mar 2023 01:42:23 -0700
+Subject: [PATCH] added snickerdoodle config files
+
+---
+ arch/arm/dts/snickerdoodle-black.dts  | 60 +++++++++++++++++++++
+ arch/arm/dts/snickerdoodle-one.dts    | 60 +++++++++++++++++++++
+ arch/arm/dts/snickerdoodle-prime.dts  | 60 +++++++++++++++++++++
+ arch/arm/dts/snickerdoodle.dts        | 60 +++++++++++++++++++++
+ configs/snickerdoodle_black_defconfig | 78 +++++++++++++++++++++++++++
+ configs/snickerdoodle_defconfig       | 78 +++++++++++++++++++++++++++
+ configs/snickerdoodle_one_defconfig   | 78 +++++++++++++++++++++++++++
+ configs/snickerdoodle_prime_defconfig | 78 +++++++++++++++++++++++++++
+ 8 files changed, 552 insertions(+)
+ create mode 100644 arch/arm/dts/snickerdoodle-black.dts
+ create mode 100644 arch/arm/dts/snickerdoodle-one.dts
+ create mode 100644 arch/arm/dts/snickerdoodle-prime.dts
+ create mode 100644 arch/arm/dts/snickerdoodle.dts
+ create mode 100644 configs/snickerdoodle_black_defconfig
+ create mode 100644 configs/snickerdoodle_defconfig
+ create mode 100644 configs/snickerdoodle_one_defconfig
+ create mode 100644 configs/snickerdoodle_prime_defconfig
+
+diff --git a/arch/arm/dts/snickerdoodle-black.dts b/arch/arm/dts/snickerdoodle-black.dts
+new file mode 100644
+index 0000000000..28fc6fa778
+--- /dev/null
++++ b/arch/arm/dts/snickerdoodle-black.dts
 @@ -0,0 +1,60 @@
 +/*
 + * snickerdoodle Black Development Platform
@@ -62,9 +88,11 @@ diff --color -ruN /home/twitzel/projects/u-boot-xlnx/arch/arm/dts/snickerdoodle-
 +        u-boot,dm-pre-reloc;
 +        status = "okay";
 +};
-diff --color -ruN /home/twitzel/projects/u-boot-xlnx/arch/arm/dts/snickerdoodle-one.dts ./arch/arm/dts/snickerdoodle-one.dts
---- /home/twitzel/projects/u-boot-xlnx/arch/arm/dts/snickerdoodle-one.dts	1969-12-31 16:00:00.000000000 -0800
-+++ ./arch/arm/dts/snickerdoodle-one.dts	2023-03-28 01:04:10.310314369 -0700
+diff --git a/arch/arm/dts/snickerdoodle-one.dts b/arch/arm/dts/snickerdoodle-one.dts
+new file mode 100644
+index 0000000000..fc91c09699
+--- /dev/null
++++ b/arch/arm/dts/snickerdoodle-one.dts
 @@ -0,0 +1,60 @@
 +/*
 + * snickerdoodle One Development Platform
@@ -126,9 +154,11 @@ diff --color -ruN /home/twitzel/projects/u-boot-xlnx/arch/arm/dts/snickerdoodle-
 +        u-boot,dm-pre-reloc;
 +        status = "okay";
 +};
-diff --color -ruN /home/twitzel/projects/u-boot-xlnx/arch/arm/dts/snickerdoodle-prime.dts ./arch/arm/dts/snickerdoodle-prime.dts
---- /home/twitzel/projects/u-boot-xlnx/arch/arm/dts/snickerdoodle-prime.dts	1969-12-31 16:00:00.000000000 -0800
-+++ ./arch/arm/dts/snickerdoodle-prime.dts	2023-03-28 01:04:10.310314369 -0700
+diff --git a/arch/arm/dts/snickerdoodle-prime.dts b/arch/arm/dts/snickerdoodle-prime.dts
+new file mode 100644
+index 0000000000..51716d37b5
+--- /dev/null
++++ b/arch/arm/dts/snickerdoodle-prime.dts
 @@ -0,0 +1,60 @@
 +/*
 + * snickerdoodle Prime Development Platform
@@ -190,9 +220,11 @@ diff --color -ruN /home/twitzel/projects/u-boot-xlnx/arch/arm/dts/snickerdoodle-
 +        u-boot,dm-pre-reloc;
 +        status = "okay";
 +};
-diff --color -ruN /home/twitzel/projects/u-boot-xlnx/arch/arm/dts/snickerdoodle.dts ./arch/arm/dts/snickerdoodle.dts
---- /home/twitzel/projects/u-boot-xlnx/arch/arm/dts/snickerdoodle.dts	1969-12-31 16:00:00.000000000 -0800
-+++ ./arch/arm/dts/snickerdoodle.dts	2023-03-28 01:04:10.310314369 -0700
+diff --git a/arch/arm/dts/snickerdoodle.dts b/arch/arm/dts/snickerdoodle.dts
+new file mode 100644
+index 0000000000..bb7219aac8
+--- /dev/null
++++ b/arch/arm/dts/snickerdoodle.dts
 @@ -0,0 +1,60 @@
 +/*
 + * snickerdoodle Development Platform
@@ -254,9 +286,11 @@ diff --color -ruN /home/twitzel/projects/u-boot-xlnx/arch/arm/dts/snickerdoodle.
 +        u-boot,dm-pre-reloc;
 +        status = "okay";
 +};
-diff --color -ruN /home/twitzel/projects/u-boot-xlnx/configs/snickerdoodle_black_defconfig ./configs/snickerdoodle_black_defconfig
---- /home/twitzel/projects/u-boot-xlnx/configs/snickerdoodle_black_defconfig	1969-12-31 16:00:00.000000000 -0800
-+++ ./configs/snickerdoodle_black_defconfig	2023-03-28 01:05:20.678012289 -0700
+diff --git a/configs/snickerdoodle_black_defconfig b/configs/snickerdoodle_black_defconfig
+new file mode 100644
+index 0000000000..8c9a061057
+--- /dev/null
++++ b/configs/snickerdoodle_black_defconfig
 @@ -0,0 +1,78 @@
 +CONFIG_ARM=y
 +CONFIG_SYS_CONFIG_NAME="snickerdoodle"
@@ -336,9 +370,11 @@ diff --color -ruN /home/twitzel/projects/u-boot-xlnx/configs/snickerdoodle_black
 +CONFIG_USB_GADGET_DOWNLOAD=y
 +CONFIG_OF_LIBFDT_OVERLAY=y
 +# CONFIG_EFI_LOADER is not set
-diff --color -ruN /home/twitzel/projects/u-boot-xlnx/configs/snickerdoodle_defconfig ./configs/snickerdoodle_defconfig
---- /home/twitzel/projects/u-boot-xlnx/configs/snickerdoodle_defconfig	1969-12-31 16:00:00.000000000 -0800
-+++ ./configs/snickerdoodle_defconfig	2023-03-28 01:05:20.678012289 -0700
+diff --git a/configs/snickerdoodle_defconfig b/configs/snickerdoodle_defconfig
+new file mode 100644
+index 0000000000..a857b67ba9
+--- /dev/null
++++ b/configs/snickerdoodle_defconfig
 @@ -0,0 +1,78 @@
 +CONFIG_ARM=y
 +CONFIG_SYS_CONFIG_NAME="snickerdoodle"
@@ -418,9 +454,11 @@ diff --color -ruN /home/twitzel/projects/u-boot-xlnx/configs/snickerdoodle_defco
 +CONFIG_USB_GADGET_DOWNLOAD=y
 +CONFIG_OF_LIBFDT_OVERLAY=y
 +# CONFIG_EFI_LOADER is not set
-diff --color -ruN /home/twitzel/projects/u-boot-xlnx/configs/snickerdoodle_one_defconfig ./configs/snickerdoodle_one_defconfig
---- /home/twitzel/projects/u-boot-xlnx/configs/snickerdoodle_one_defconfig	1969-12-31 16:00:00.000000000 -0800
-+++ ./configs/snickerdoodle_one_defconfig	2023-03-28 01:05:20.678012289 -0700
+diff --git a/configs/snickerdoodle_one_defconfig b/configs/snickerdoodle_one_defconfig
+new file mode 100644
+index 0000000000..0339e48665
+--- /dev/null
++++ b/configs/snickerdoodle_one_defconfig
 @@ -0,0 +1,78 @@
 +CONFIG_ARM=y
 +CONFIG_SYS_CONFIG_NAME="snickerdoodle"
@@ -500,9 +538,11 @@ diff --color -ruN /home/twitzel/projects/u-boot-xlnx/configs/snickerdoodle_one_d
 +CONFIG_USB_GADGET_DOWNLOAD=y
 +CONFIG_OF_LIBFDT_OVERLAY=y
 +# CONFIG_EFI_LOADER is not set
-diff --color -ruN /home/twitzel/projects/u-boot-xlnx/configs/snickerdoodle_prime_defconfig ./configs/snickerdoodle_prime_defconfig
---- /home/twitzel/projects/u-boot-xlnx/configs/snickerdoodle_prime_defconfig	1969-12-31 16:00:00.000000000 -0800
-+++ ./configs/snickerdoodle_prime_defconfig	2023-03-28 01:05:20.678012289 -0700
+diff --git a/configs/snickerdoodle_prime_defconfig b/configs/snickerdoodle_prime_defconfig
+new file mode 100644
+index 0000000000..c200783fa0
+--- /dev/null
++++ b/configs/snickerdoodle_prime_defconfig
 @@ -0,0 +1,78 @@
 +CONFIG_ARM=y
 +CONFIG_SYS_CONFIG_NAME="snickerdoodle"
@@ -582,3 +622,6 @@ diff --color -ruN /home/twitzel/projects/u-boot-xlnx/configs/snickerdoodle_prime
 +CONFIG_USB_GADGET_DOWNLOAD=y
 +CONFIG_OF_LIBFDT_OVERLAY=y
 +# CONFIG_EFI_LOADER is not set
+-- 
+2.37.2
+
