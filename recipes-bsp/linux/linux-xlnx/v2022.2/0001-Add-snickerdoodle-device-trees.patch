@@ -1,7 +1,7 @@
 From 3e70803ae1c1a30a34c82b24f06afba3520a909e Mon Sep 17 00:00:00 2001
 From: Thomas Witzel <witzel.thomas@gmail.com>
 Date: Tue, 28 Mar 2023 16:42:58 -0700
-Subject: [PATCH] Add snickerdoodle device trees
+Subject: [PATCH 1/2] Add snickerdoodle device trees
 
 ---
  arch/arm/boot/dts/Makefile                |  6 ++-

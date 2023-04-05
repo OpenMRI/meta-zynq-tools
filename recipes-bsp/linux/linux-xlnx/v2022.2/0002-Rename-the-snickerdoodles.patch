@@ -1,0 +1,55 @@
+From 51c285deb2526aa2503c7ee0db4665b0ed37f9cd Mon Sep 17 00:00:00 2001
+From: Thomas Witzel <witzel.thomas@gmail.com>
+Date: Wed, 5 Apr 2023 14:01:23 -0700
+Subject: [PATCH 2/2] Rename the snickerdoodles
+
+---
+ arch/arm/boot/dts/Makefile                                | 8 ++++----
+ .../dts/{snickerdoodle.dts => zynq-snickerdoodle.dts}     | 0
+ ...ickerdoodle-black.dts => zynq-snickerdoodle_black.dts} | 0
+ .../{snickerdoodle-one.dts => zynq-snickerdoodle_one.dts} | 0
+ ...ickerdoodle-prime.dts => zynq-snickerdoodle_prime.dts} | 0
+ 5 files changed, 4 insertions(+), 4 deletions(-)
+ rename arch/arm/boot/dts/{snickerdoodle.dts => zynq-snickerdoodle.dts} (100%)
+ rename arch/arm/boot/dts/{snickerdoodle-black.dts => zynq-snickerdoodle_black.dts} (100%)
+ rename arch/arm/boot/dts/{snickerdoodle-one.dts => zynq-snickerdoodle_one.dts} (100%)
+ rename arch/arm/boot/dts/{snickerdoodle-prime.dts => zynq-snickerdoodle_prime.dts} (100%)
+
+diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
+index a6e8fa3d0bf4..3c88570cbbe3 100644
+--- a/arch/arm/boot/dts/Makefile
++++ b/arch/arm/boot/dts/Makefile
+@@ -1373,10 +1373,10 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
+ 	zynq-zturn-v5.dtb \
+ 	zynq-zybo.dtb \
+ 	zynq-zybo-z7.dtb \
+-	snickerdoodle-black.dtb \
+-	snickerdoodle-one.dtb \
+-	snickerdoodle-prime.dtb \
+-	snickerdoodle.dtb
++	zynq-snickerdoodle_black.dtb \
++	zynq-snickerdoodle_one.dtb \
++	zynq-snickerdoodle_prime.dtb \
++	zynq-snickerdoodle.dtb
+ dtb-$(CONFIG_MACH_ARMADA_370) += \
+ 	armada-370-db.dtb \
+ 	armada-370-dlink-dns327l.dtb \
+diff --git a/arch/arm/boot/dts/snickerdoodle.dts b/arch/arm/boot/dts/zynq-snickerdoodle.dts
+similarity index 100%
+rename from arch/arm/boot/dts/snickerdoodle.dts
+rename to arch/arm/boot/dts/zynq-snickerdoodle.dts
+diff --git a/arch/arm/boot/dts/snickerdoodle-black.dts b/arch/arm/boot/dts/zynq-snickerdoodle_black.dts
+similarity index 100%
+rename from arch/arm/boot/dts/snickerdoodle-black.dts
+rename to arch/arm/boot/dts/zynq-snickerdoodle_black.dts
+diff --git a/arch/arm/boot/dts/snickerdoodle-one.dts b/arch/arm/boot/dts/zynq-snickerdoodle_one.dts
+similarity index 100%
+rename from arch/arm/boot/dts/snickerdoodle-one.dts
+rename to arch/arm/boot/dts/zynq-snickerdoodle_one.dts
+diff --git a/arch/arm/boot/dts/snickerdoodle-prime.dts b/arch/arm/boot/dts/zynq-snickerdoodle_prime.dts
+similarity index 100%
+rename from arch/arm/boot/dts/snickerdoodle-prime.dts
+rename to arch/arm/boot/dts/zynq-snickerdoodle_prime.dts
+-- 
+2.37.2
+

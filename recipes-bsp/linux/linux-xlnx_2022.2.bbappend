@@ -14,6 +14,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}/v2022.2:"
 SRC_URI:append = " \
 		file://0001-Add-devicetree-for-the-redpitaya-OpenMRI-device.patch \
 		file://0001-Add-snickerdoodle-device-trees.patch \
+		file://0002-Rename-the-snickerdoodles.patch \
 		"
 # Modify the kernel config to add Xilinx drivers
 # SRC_URI:append := "file://xilinx_drivers.cfg"
