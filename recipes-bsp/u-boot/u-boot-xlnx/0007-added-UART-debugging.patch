@@ -1,7 +1,7 @@
 From 437db528f47bec9f00da1afc36c1e594d552d220 Mon Sep 17 00:00:00 2001
 From: Thomas Witzel <witzel.thomas@gmail.com>
 Date: Wed, 29 Mar 2023 16:26:31 -0700
-Subject: [PATCH] added UART debugging
+Subject: [PATCH 7/8] added UART debugging
 
 ---
  configs/redpitaya_defconfig | 3 +++

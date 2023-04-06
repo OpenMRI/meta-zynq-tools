@@ -1,7 +1,7 @@
 From 3c08687c0d9f22efe7f4a2125c2dc75257907c00 Mon Sep 17 00:00:00 2001
 From: Thomas Witzel <witzel.thomas@gmail.com>
 Date: Tue, 28 Mar 2023 08:33:50 -0700
-Subject: [PATCH] Configure snickerdoodle to support ZYNQ PL DUHHHHH
+Subject: [PATCH 4/8] Configure snickerdoodle to support ZYNQ PL DUHHHHH
 
 ---
  configs/snickerdoodle_black_defconfig | 1 +

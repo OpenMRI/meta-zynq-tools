@@ -1,7 +1,7 @@
 From 9c2b2c084506f75df2821d5250ffe724cd2f3c51 Mon Sep 17 00:00:00 2001
 From: Thomas Witzel <witzel.thomas@gmail.com>
 Date: Tue, 28 Mar 2023 08:05:26 -0700
-Subject: [PATCH] patch snickerdoodle device-tree Makefile
+Subject: [PATCH 3/8] patch snickerdoodle device-tree Makefile
 
 ---
  arch/arm/dts/Makefile | 6 +++++-

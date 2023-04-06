@@ -1,7 +1,7 @@
 From a2fe05f304ce25a8174baeac7d9e63aa755c959a Mon Sep 17 00:00:00 2001
 From: Thomas Witzel <witzel.thomas@gmail.com>
 Date: Wed, 29 Mar 2023 11:46:08 -0700
-Subject: [PATCH] Add redpitaya device tree
+Subject: [PATCH 5/8] Add redpitaya device tree
 
 ---
  arch/arm/dts/Makefile           |   3 +-

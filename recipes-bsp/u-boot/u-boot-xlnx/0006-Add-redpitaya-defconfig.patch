@@ -1,7 +1,7 @@
 From 008f680ac2e869b79a37205dad5ec450ad6c9d7c Mon Sep 17 00:00:00 2001
 From: Thomas Witzel <witzel.thomas@gmail.com>
 Date: Wed, 29 Mar 2023 12:02:37 -0700
-Subject: [PATCH] Add redpitaya defconfig
+Subject: [PATCH 6/8] Add redpitaya defconfig
 
 ---
  configs/redpitaya_defconfig | 134 ++++++++++++++++++++++++++++++++++++

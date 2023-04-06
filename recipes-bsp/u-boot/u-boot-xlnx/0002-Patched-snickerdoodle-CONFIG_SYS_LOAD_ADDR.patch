@@ -1,7 +1,7 @@
 From d0f4f0bdb4a12318820bd4d42d07aeab7a4df13b Mon Sep 17 00:00:00 2001
 From: Thomas Witzel <witzel.thomas@gmail.com>
 Date: Tue, 28 Mar 2023 07:42:35 -0700
-Subject: [PATCH] Patched snickerdoodle CONFIG_SYS_LOAD_ADDR
+Subject: [PATCH 2/8] Patched snickerdoodle CONFIG_SYS_LOAD_ADDR
 
 ---
  configs/snickerdoodle_black_defconfig | 1 +
