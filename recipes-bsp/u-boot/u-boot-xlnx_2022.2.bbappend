@@ -13,4 +13,7 @@ SRC_URI:append = " file://0001-Add-snickerdoodle-config-files.patch \
 		   file://0006-Add-redpitaya-defconfig.patch \
 		   file://0007-added-UART-debugging.patch \
 		   file://0008-remove-FIT-support-for-now.patch \
-                 "
+		   file://0009-Remove-CONFIG_SYS_LOAD_ADDR-snickerdoodle_black.patch \
+		   file://0010-using-zynq-default-config-for-snickerdoodle.patch \                
+		   file://0011-Remove-config-name-snickerdoodle-black.patch \
+"
